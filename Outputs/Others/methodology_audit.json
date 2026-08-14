@@ -1,0 +1,58 @@
+{
+  "score_uses_ground_truth_label": false,
+  "score_definition": "mean negative log probability of consensus class across MC passes + lambda * entropy of predictive mean",
+  "operational_threshold_source": "validation set",
+  "test_labels_used_for": [
+    "retrospective metrics",
+    "figures",
+    "error analysis"
+  ],
+  "test_labels_used_for_score_or_acceptance": false,
+  "retrospective_curve_warning": "Coverage-risk curves use exact test ranking for diagnostic comparison and are not prospective operating points.",
+  "quantum_execution": "PennyLane default.qubit simulator",
+  "quantum_advantage_claimed": false,
+  "random_seed": 42,
+  "config": {
+    "data_flag": "pneumoniamnist",
+    "download": true,
+    "batch_size": 64,
+    "num_workers": 0,
+    "max_train_samples": 3000,
+    "max_val_samples": 600,
+    "max_test_samples": 600,
+    "latent_dim": 8,
+    "dropout_p": 0.25,
+    "epochs": 6,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "mc_passes": 20,
+    "free_energy_lambda": 0.2,
+    "target_coverage": 0.75,
+    "quantum_qubits": 4,
+    "quantum_layers": 1,
+    "run_classical_control": true,
+    "ece_bins": 10
+  },
+  "best_checkpoints": {
+    "baseline": {
+      "best_epoch": 6,
+      "best_val_auc": 0.9182519280205654,
+      "best_val_loss": 0.44316525922881234
+    },
+    "classical_control": {
+      "best_epoch": 6,
+      "best_val_auc": 0.9160239931448158,
+      "best_val_loss": 0.4433964590231578
+    },
+    "hybrid_quantum": {
+      "best_epoch": 6,
+      "best_val_auc": 0.8473388555650767,
+      "best_val_loss": 0.4549429284201728
+    }
+  },
+  "parameter_counts": {
+    "baseline": 25818,
+    "classical_control": 25898,
+    "hybrid_quantum": 25894
+  }
+}
