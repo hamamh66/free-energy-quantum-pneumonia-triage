@@ -1,0 +1,4 @@
+model,trainable_parameters
+baseline,25818
+classical_control,25898
+hybrid_quantum,25894
